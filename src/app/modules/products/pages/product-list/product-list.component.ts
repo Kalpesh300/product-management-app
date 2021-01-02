@@ -24,6 +24,11 @@ export class ProductListComponent implements OnInit {
   }
 
 
+  productsTrackBy(index: number, product: Product): number {
+    return +product.id;
+  }
+
+
   private getProductList(): void {
     this._productService.getProductList().subscribe(
       (response) => {

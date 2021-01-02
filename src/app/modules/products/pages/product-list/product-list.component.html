@@ -1,1 +1,8 @@
-<p>product-list works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-3" *ngFor="let product of products; trackBy:productsTrackBy">
+      <pma-product-card [productData]="product">
+      </pma-product-card>
+    </div>
+  </div>
+</div>
