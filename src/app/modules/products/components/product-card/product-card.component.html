@@ -1,9 +1,12 @@
-<div class="card product-card" *ngIf="productData">
-  <img [src]="productData.imageUrl" class="card-img-top product-img" [alt]="productData.title">
+<div class="card mb-4" *ngIf="productData">
+  <img [src]="productData.imageUrl" class="card-img-top product-img p-3" [alt]="productData.title">
   <div class="card-body">
     <h5 class="card-title">{{ productData.title }}</h5>
-    <p class="card-text">
+    <p class="card-text text-truncate">
       {{ productData.description }}
+    </p>
+    <p class="card-text text-primary">
+      {{ productData.price | currency:'INR' }}
     </p>
   </div>
 </div>

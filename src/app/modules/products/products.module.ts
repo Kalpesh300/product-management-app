@@ -7,13 +7,15 @@ import { ProductService } from './services/product.service';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductsListHeaderComponent } from './components/products-list-header/products-list-header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductsFilterPanelComponent } from './components/products-filter-panel/products-filter-panel.component';
 
 
 @NgModule({
   declarations: [
     ProductListComponent,
     ProductCardComponent,
-    ProductsListHeaderComponent
+    ProductsListHeaderComponent,
+    ProductsFilterPanelComponent
   ],
   imports: [
     CommonModule,

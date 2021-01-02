@@ -1,4 +1,4 @@
-import { SEARCH_QUERY_PARAMETER } from './../../../../constants/route.constants';
+import { CATEGORY_QUERY_PARAMETER, PRICE_QUERY_PARAMETER, SEARCH_QUERY_PARAMETER } from './../../../../constants/route.constants';
 import { Product } from 'src/app/interfaces/product.interface';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
@@ -18,7 +18,7 @@ import { filter, tap } from 'rxjs/operators';
 export class ProductListComponent implements OnInit, OnDestroy {
 
   subscriptions: Subscription[];
-  filteredProducts: Product[];
+  products: Product[];
 
   private _products: Product[];
 
@@ -27,9 +27,9 @@ export class ProductListComponent implements OnInit, OnDestroy {
     private _productService: ProductService,
     private _activatedRoute: ActivatedRoute,
   ) {
-    this.filteredProducts = [];
-    this.subscriptions = [];
+    this.products = [];
     this._products = [];
+    this.subscriptions = [];
   }
 
 
@@ -49,8 +49,9 @@ export class ProductListComponent implements OnInit, OnDestroy {
   private getProductList(): void {
     this._productService.getProductList().subscribe(
       (response) => {
-        this._products = response.payload;
-        this.filteredProducts = this._products;
+
+        this.products = response.payload;
+        this._products = this.products;
 
         this.subscribeToQueryParamsChange();
       }
@@ -67,7 +68,27 @@ export class ProductListComponent implements OnInit, OnDestroy {
         ),
         tap(
           (queryParamMap) => {
-            this.filterProductsBySearchTerm(queryParamMap.get(SEARCH_QUERY_PARAMETER))
+
+            const productsBySearchTerm = this.filterProductsBySearchTerm(
+              queryParamMap.get(SEARCH_QUERY_PARAMETER),
+              this._products
+            );
+
+            const price = queryParamMap.get(PRICE_QUERY_PARAMETER);
+            let productsByPrice: Product[];
+            if (price) {
+              productsByPrice = this.filterProductsByPrice(
+                +price, productsBySearchTerm
+              );
+            } else {
+              productsByPrice = this.filterProductsByPrice(
+                null, productsBySearchTerm
+              );
+            }
+
+            const category = queryParamMap.get(CATEGORY_QUERY_PARAMETER);
+            this.products = this.filterProductsByCategory(category, productsByPrice);
+
           }
         )
       ).subscribe()
@@ -76,18 +97,54 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
 
-  private filterProductsBySearchTerm(searchTerm: string | null): void {
+  private filterProductsBySearchTerm(
+    searchTerm: string | null,
+    products: Product[]
+  ): Product[] {
 
     if (!searchTerm) {
-      this.filteredProducts = this._products;
-      return;
+      return products;
     }
 
-    this.filteredProducts = this._products.filter(
+    return products.filter(
       (product) => {
         const content = (product.title + product.description).toLowerCase();
         return content.includes(searchTerm.toLowerCase());
       }
     );
+  }
+
+
+  private filterProductsByPrice(
+    price: number | null,
+    products: Product[]
+  ): Product[] {
+
+    if (!price) {
+      return products;
+    }
+
+    return products.filter(
+      (product) => {
+        return product.price < price
+      }
+    )
+  }
+
+
+  private filterProductsByCategory(
+    category: string | null,
+    products: Product[]
+  ): Product[] {
+
+    if (!category) {
+      return products;
+    }
+
+    return products.filter(
+      (product) => {
+        return product.category === category
+      }
+    )
   }
 }

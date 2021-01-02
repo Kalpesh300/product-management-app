@@ -1,9 +1,18 @@
-<pma-products-list-header></pma-products-list-header>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-4" *ngFor="let product of filteredProducts; trackBy:productsTrackBy">
-      <pma-product-card [productData]="product">
-      </pma-product-card>
+<div class="h-100 d-flex flex-column">
+  <pma-products-list-header class="flex-shrink-0"></pma-products-list-header>
+  <div class="container-fluid flex-grow-1 overflow-hidden">
+    <div class="row h-100">
+      <div class="col-2">
+        <pma-products-filter-panel></pma-products-filter-panel>
+      </div>
+      <div class="col-10 overflow-auto h-100">
+        <div class="row">
+          <div class="col-4" *ngFor="let product of products; trackBy:productsTrackBy">
+            <pma-product-card [productData]="product">
+            </pma-product-card>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

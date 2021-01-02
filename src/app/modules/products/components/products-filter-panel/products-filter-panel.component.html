@@ -1,0 +1,32 @@
+<div class="products-filter-panel">
+
+  <div class="filter-section">
+    <h5 class="mb-3"> Price </h5>
+    <div class="d-flex" *ngFor="let priceFilter of priceFilters">
+      <input class="form-check-input" type="radio" name="price" [value]="priceFilter" [id]="priceFilter"
+        [(ngModel)]="selectedPriceFilter" (ngModelChange)="changePriceFilter(priceFilter)">
+      <label role="button" class="text-secondary ms-2" [for]="priceFilter"
+        [ngClass]="{ 'fw-bold text-dark':  selectedPriceFilter === priceFilter}">
+        &#60; {{ priceFilter | currency:'INR' }}
+      </label>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="filter-section">
+    <h5 class="mb-3"> Categories </h5>
+    <div class="d-flex" *ngFor="let productCategory of productCategories">
+      <input class="form-check-input" type="radio" name="category" [value]="productCategory" [id]="productCategory"
+        [(ngModel)]="selectedProductCategory" (ngModelChange)="changeSelectedProductCategory(productCategory)">
+      <label role="button" class="text-secondary ms-2" [for]="productCategory"
+        [ngClass]="{ 'fw-bold text-dark':  selectedProductCategory === productCategory }">
+        {{ productCategory }}
+      </label>
+    </div>
+  </div>
+
+  <p role="button" class="text-primary mt-3" *ngIf="selectedProductCategory || selectedPriceFilter"
+    (click)="clearAllFilters()"> Clear all filters </p>
+
+</div>

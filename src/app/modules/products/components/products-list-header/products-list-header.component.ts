@@ -49,12 +49,13 @@ export class ProductsListHeaderComponent implements OnInit, OnDestroy {
       distinctUntilChanged(),
     ).subscribe(
       (searchTerm) => {
+
         this._router.navigate(
           [],
           {
             relativeTo: this._activatedRoute,
             queryParams: {
-              [SEARCH_QUERY_PARAMETER]: searchTerm
+              [SEARCH_QUERY_PARAMETER]: searchTerm || null
             },
             queryParamsHandling: 'merge'
           }
