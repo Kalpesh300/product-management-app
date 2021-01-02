@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import mockServer from 'src/app/mock-backend/root.server';
+import mockServer from 'src/app/mock/root.server';
 @Component({
   selector: 'pma-root',
   templateUrl: './app.component.html',

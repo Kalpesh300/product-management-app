@@ -1,6 +1,7 @@
-<div class="container">
+<pma-products-list-header></pma-products-list-header>
+<div class="container-fluid">
   <div class="row">
-    <div class="col-3" *ngFor="let product of products; trackBy:productsTrackBy">
+    <div class="col-4" *ngFor="let product of filteredProducts; trackBy:productsTrackBy">
       <pma-product-card [productData]="product">
       </pma-product-card>
     </div>

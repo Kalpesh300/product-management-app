@@ -5,13 +5,21 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { ProductService } from './services/product.service';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { ProductsListHeaderComponent } from './components/products-list-header/products-list-header.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [ProductListComponent, ProductCardComponent],
+  declarations: [
+    ProductListComponent,
+    ProductCardComponent,
+    ProductsListHeaderComponent
+  ],
   imports: [
     CommonModule,
-    ProductsRoutingModule
+    ProductsRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [
     ProductService
