@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationPanelComponent } from './components/navigation-panel/navigation-panel.component';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { NavigationPanelComponent } from './components/navigation-panel/navigati
   ],
   imports: [
     BrowserModule,
+    CoreModule,
     AppRoutingModule
   ],
   providers: [],

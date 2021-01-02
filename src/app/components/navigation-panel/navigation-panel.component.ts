@@ -1,6 +1,7 @@
 
-import { NAVIGATION_ROUTES } from '@pma/constants/route.constants';
 import { Component } from '@angular/core';
+import { PRODUCTS_LIST_PAGE_PATH, PRODUCTS_TRASH_PAGE_PATH } from 'src/app/constants/route.constants';
+import { NavigationRoutes } from 'src/app/interfaces/routes.interface';
 
 @Component({
   selector: 'pma-navigation-panel',
@@ -9,10 +10,13 @@ import { Component } from '@angular/core';
 })
 export class NavigationPanelComponent {
 
-  navigationRoutes: typeof NAVIGATION_ROUTES;
+  navigationRoutes: NavigationRoutes;
 
 
   constructor() {
-    this.navigationRoutes = NAVIGATION_ROUTES;
+    this.navigationRoutes = {
+      productsListPagePath: PRODUCTS_LIST_PAGE_PATH,
+      productsTrashPagePath: PRODUCTS_TRASH_PAGE_PATH,
+    };
   }
 }
