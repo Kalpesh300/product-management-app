@@ -6,7 +6,8 @@ export const products = [
       'delivers four times better drop performance. Let’s see what this thing can do.',
     imageUrl: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-pro-family-hero',
     price: 119900,
-    category: 'iPhone'
+    category: 'iPhone',
+    inStock: true
   },
   {
     title: 'iPhone 12 mini',
@@ -14,7 +15,8 @@ export const products = [
       'with four times better drop performance. And Night mode on every camera. iPhone 12 has it all — in two perfect sizes.',
     imageUrl: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-family-select-2020',
     price: 69900,
-    category: 'iPhone'
+    category: 'iPhone',
+    inStock: false
   },
   {
     title: 'iPhone SE',
@@ -22,7 +24,8 @@ export const products = [
       'price. It’s just what you’ve been waiting for.',
     imageUrl: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-se-black-select-2020_GEO_EMEA',
     price: 39900,
-    category: 'iPhone'
+    category: 'iPhone',
+    inStock: true
   },
   {
     title: 'iPhone 11',
@@ -32,7 +35,8 @@ export const products = [
       'and wide color support for true-to-life colors.',
     imageUrl: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone11-black-select-2019_GEO_EMEA',
     price: 54900,
-    category: 'iPhone'
+    category: 'iPhone',
+    inStock: true
   },
   {
     title: 'iPad Pro',
@@ -41,7 +45,8 @@ export const products = [
       'also features updated Multi-Touch capabilities allowing users to interact with the screen with less latency than previous iPads.',
     imageUrl: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/ipad-pro-12-11-select-202003',
     price: 89900,
-    category: 'iPad'
+    category: 'iPad',
+    inStock: false
   },
   {
     title: 'iPad Air',
@@ -50,7 +55,8 @@ export const products = [
       'Air 2 Wi-Fi is powered by a 1.5GHz dual-core Apple A8X processor. It comes with 2GB of RAM.',
     imageUrl: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/ipad-air-select-wifi-green-202009',
     price: 54900,
-    category: 'iPad'
+    category: 'iPad',
+    inStock: true
   },
   {
     title: 'iPad mini',
@@ -59,6 +65,7 @@ export const products = [
       'can capture your biggest ideas wherever they come to you. It’s still iPad mini. There’s just more of it than ever.',
     imageUrl: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/ipad-mini-select-wifi-gold-201911',
     price: 34900,
-    category: 'iPad'
+    category: 'iPad',
+    inStock: false
   }
 ];

@@ -1,4 +1,4 @@
-import { CATEGORY_QUERY_PARAMETER, PRICE_QUERY_PARAMETER, SEARCH_QUERY_PARAMETER } from './../../../../constants/route.constants';
+import { CATEGORY_QUERY_PARAMETER, PRICE_QUERY_PARAMETER, SEARCH_QUERY_PARAMETER, IN_STOCK_QUERY_PARAMETER } from './../../../../constants/route.constants';
 import { Product } from 'src/app/interfaces/product.interface';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
@@ -87,7 +87,15 @@ export class ProductListComponent implements OnInit, OnDestroy {
             }
 
             const category = queryParamMap.get(CATEGORY_QUERY_PARAMETER);
-            this.products = this.filterProductsByCategory(category, productsByPrice);
+            const productsByCategory = this.filterProductsByCategory(category, productsByPrice);
+
+            const inStockQueryParam = queryParamMap.get(IN_STOCK_QUERY_PARAMETER);
+            if(inStockQueryParam === null) {
+              this.products = this.filterProductsByInStock(null, productsByCategory);
+            } else {
+              const inStock: boolean = queryParamMap.get(IN_STOCK_QUERY_PARAMETER) === 'true';
+              this.products = this.filterProductsByInStock(inStock, productsByCategory);
+            }
 
           }
         )
@@ -144,6 +152,23 @@ export class ProductListComponent implements OnInit, OnDestroy {
     return products.filter(
       (product) => {
         return product.category === category
+      }
+    )
+  }
+
+
+  private filterProductsByInStock(
+    inStock: boolean | null,
+    products: Product[]
+  ): Product[] {
+
+    if (inStock === null || inStock === undefined) {
+      return products;
+    }
+
+    return products.filter(
+      (product) => {
+        return product.inStock === inStock
       }
     )
   }

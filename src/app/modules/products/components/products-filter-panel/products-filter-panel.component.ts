@@ -1,3 +1,4 @@
+import { IN_STOCK_QUERY_PARAMETER } from './../../../../constants/route.constants';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CATEGORY_QUERY_PARAMETER, PRICE_QUERY_PARAMETER } from 'src/app/constants/route.constants';
@@ -11,8 +12,11 @@ export class ProductsFilterPanelComponent implements OnInit {
 
   priceFilters: number[];
   productCategories: string[];
+  inStockOptions: { title: string, value: string }[];
+
   selectedPriceFilter: number | null;
   selectedProductCategory: string | null;
+  selectedInStockOptionValue: string | null;
 
 
   constructor(
@@ -32,8 +36,20 @@ export class ProductsFilterPanelComponent implements OnInit {
       'iPad'
     ];
 
+    this.inStockOptions = [
+      {
+        title: 'In stock',
+        value: 'true'
+      },
+      {
+        title: 'Not in stock',
+        value: 'false'
+      }
+    ];
+
     this.selectedPriceFilter = null;
     this.selectedProductCategory = null;
+    this.selectedInStockOptionValue = null;
   }
 
 
@@ -74,10 +90,27 @@ export class ProductsFilterPanelComponent implements OnInit {
   }
 
 
+  changeSelectedInStockOption(option: { title: string, value: string }): void {
+
+    this.selectedInStockOptionValue = option.value;
+    this._router.navigate(
+      [],
+      {
+        relativeTo: this._activatedRoute,
+        queryParams: {
+          [IN_STOCK_QUERY_PARAMETER]: option.value
+        },
+        queryParamsHandling: 'merge'
+      }
+    );
+  }
+
+
   clearAllFilters(): void {
 
     this.selectedProductCategory = null;
     this.selectedPriceFilter = null;
+    this.selectedInStockOptionValue = null;
 
     this._router.navigate(
       [],
@@ -85,6 +118,7 @@ export class ProductsFilterPanelComponent implements OnInit {
         relativeTo: this._activatedRoute,
         queryParams: {
           [PRICE_QUERY_PARAMETER]: null,
+          [IN_STOCK_QUERY_PARAMETER]: null,
           [CATEGORY_QUERY_PARAMETER]: null,
         },
         queryParamsHandling: 'merge'
@@ -104,5 +138,6 @@ export class ProductsFilterPanelComponent implements OnInit {
     }
 
     this.selectedProductCategory = queryParamMap.get(CATEGORY_QUERY_PARAMETER);
+    this.selectedInStockOptionValue = queryParamMap.get(IN_STOCK_QUERY_PARAMETER);
   }
 }
