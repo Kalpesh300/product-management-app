@@ -23,6 +23,9 @@
         <span class="badge ms-3" [ngClass]="productData.inStock ? 'bg-success' : 'bg-danger'">
           {{ productData.inStock ? 'In Stock' : 'Not in Stock'}}
         </span>
+        <div>
+          <rating [(ngModel)]="productData.ratingStar" [max]="5" [readonly]="true"></rating>
+        </div>
       </div>
     </div>
   </div>

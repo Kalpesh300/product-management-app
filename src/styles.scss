@@ -14,3 +14,12 @@ a {
     color: unset;
   }
 }
+
+.sr-only {
+  display: none;
+}
+
+.bs-rating-star {
+  font-size: 1.5rem;
+  color: var(--bs-yellow);
+}

@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationPanelComponent } from './components/navigation-panel/navigation-panel.component';
 import { CoreModule } from './core/core.module';
-
+import { RatingModule } from 'ngx-bootstrap/rating';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +14,8 @@ import { CoreModule } from './core/core.module';
   imports: [
     BrowserModule,
     CoreModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RatingModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

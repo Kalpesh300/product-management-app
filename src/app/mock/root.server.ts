@@ -18,7 +18,6 @@ export default () => {
 
     routes() {
       this.urlPrefix = 'api';
-      this.timing = 3000;
 
       this.get('/products', (schema, request) => {
         return {

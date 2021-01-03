@@ -9,6 +9,7 @@ import { ProductsListHeaderComponent } from './components/products-list-header/p
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsFilterPanelComponent } from './components/products-filter-panel/products-filter-panel.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { RatingModule } from 'ngx-bootstrap/rating';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { ProductDetailsComponent } from './pages/product-details/product-details
     ProductsRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    RatingModule,
   ],
   providers: [
     ProductService
