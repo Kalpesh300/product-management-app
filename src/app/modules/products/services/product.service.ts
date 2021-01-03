@@ -1,3 +1,4 @@
+import { GET_DELETED_PRODUCT_LIST_ENDPOINT, RESTORE_PRODUCT_ENDPOINT } from './../../../constants/api-endpoint.constants';
 import { ProductFormValue } from './../../../interfaces/product.interface';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -36,9 +37,23 @@ export class ProductService {
   }
 
 
-  deleteProduct(productId: string): Observable<Response<void>> {
+  deleteProduct(productId: string): Observable<Response<Product>> {
 
     const url = `${environment.apiEndPoint}/${GET_PRODUCT_LIST_ENDPOINT}/${productId}`;
-    return this._apiCaller.putRequest<void, null>(url, null);
+    return this._apiCaller.putRequest<Product, null>(url, null);
+  }
+
+
+  getDeletedProducts(): Observable<Response<Product[]>> {
+
+    const url = `${environment.apiEndPoint}/${GET_DELETED_PRODUCT_LIST_ENDPOINT}`;
+    return this._apiCaller.getRequest<Product[]>(url);
+  }
+
+
+  restoreProduct(productId: string): Observable<Response<Product>> {
+
+    const url = `${environment.apiEndPoint}/${RESTORE_PRODUCT_ENDPOINT}/${productId}`;
+    return this._apiCaller.putRequest<Product, null>(url, null);
   }
 }

@@ -62,9 +62,9 @@ export class ProductListComponent implements OnInit, OnDestroy {
   deleteProduct(modalData: any): void {
 
     this._productService.deleteProduct(modalData.id).subscribe(
-      () => {
+      (response) => {
         const index = this.products.findIndex(
-          (product) => product.id === modalData.id
+          (product) => product.id === response.payload.id
         );
         this.products.splice(index, 1);
       }

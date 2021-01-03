@@ -13,6 +13,7 @@ import { ProductDetailsComponent } from './pages/product-details/product-details
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { AddProductModalComponent } from './components/add-product-modal/add-product-modal.component';
 import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
+import { ProductTrashComponent } from './pages/product-trash/product-trash.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ConfirmationModalComponent } from './components/confirmation-modal/conf
     ProductsFilterPanelComponent,
     ProductDetailsComponent,
     AddProductModalComponent,
-    ConfirmationModalComponent
+    ConfirmationModalComponent,
+    ProductTrashComponent
   ],
   imports: [
     CommonModule,

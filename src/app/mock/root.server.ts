@@ -26,6 +26,13 @@ export default () => {
         }
       });
 
+      this.get('/products/deleted', (schema, request) => {
+        const products = (schema as any).products.where({ isRemoved: true }).models;
+        return {
+          payload: products
+        }
+      });
+
       this.get('/products/:id', (schema, request) => {
         return {
           payload: (schema as any).products.find(request.params.id)
@@ -43,6 +50,15 @@ export default () => {
       this.put('products/:id', (schema, request) => {
 
         const attrs = JSON.parse(JSON.stringify({ isRemoved: true }));
+        const product = (schema as any).products.find(request.params.id);
+        return {
+          payload: product.update(attrs)
+        }
+      })
+
+      this.put('products/restore/:id', (schema, request) => {
+
+        const attrs = JSON.parse(JSON.stringify({ isRemoved: false }));
         const product = (schema as any).products.find(request.params.id);
         return {
           payload: product.update(attrs)

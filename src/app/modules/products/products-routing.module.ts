@@ -1,3 +1,5 @@
+import { ProductTrashComponent } from './pages/product-trash/product-trash.component';
+import { PRODUCTS_TRASH_PAGE_PATH } from './../../constants/route.constants';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -13,6 +15,10 @@ const routes: Routes = [
   {
     path: PRODUCTS_LIST_PAGE_PATH,
     component: ProductListComponent,
+  },
+  {
+    path: PRODUCTS_TRASH_PAGE_PATH,
+    component: ProductTrashComponent,
   },
   {
     path: `${PRODUCTS_LIST_PAGE_PATH}/:${PRODUCTS_ID_PARAMETER}`,

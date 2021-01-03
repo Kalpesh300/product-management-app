@@ -1,4 +1,4 @@
-<a class="card mb-4" *ngIf="productData" [routerLink]="[productData.id]">
+<a class="card mb-4" *ngIf="productData" [routerLink]="['/', PRODUCTS_LIST_PAGE_PATH, productData.id]">
   <img [src]="productData.imageUrl" class="card-img-top product-img p-3" [alt]="productData.title">
   <div class="card-body">
     <h5 class="card-title">{{ productData.title }}</h5>
@@ -9,6 +9,14 @@
       {{ productData.price | currency:'INR' }}
     </p>
 
-    <button type="button" class="btn btn-primary" (click)="deleteProduct($event)"> Delete </button>
+    <button *ngIf="!productData.isRemoved; else: removedProduct" type="button" class="btn btn-primary"
+      (click)="deleteProduct($event)"> Delete
+    </button>
+
+    <ng-template #removedProduct>
+      <button type="button" class="btn btn-primary" (click)="restoreProduct($event)">
+        Restore
+      </button>
+    </ng-template>
   </div>
 </a>

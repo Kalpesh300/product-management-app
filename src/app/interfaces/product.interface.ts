@@ -7,6 +7,7 @@ export interface Product {
   category: string;
   inStock: boolean;
   ratingStar: number;
+  isRemoved: boolean;
 }
 
 export interface ProductFormValue {
