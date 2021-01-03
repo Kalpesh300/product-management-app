@@ -4,3 +4,13 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+
+a {
+  text-decoration: none;
+  color: unset;
+
+  &:hover {
+    border-color: var(--bs-primary);
+    color: unset;
+  }
+}

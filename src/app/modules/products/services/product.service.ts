@@ -17,7 +17,13 @@ export class ProductService {
 
   getProductList(): Observable<Response<Product[]>> {
 
-    const url = `${environment.apiEndPoint}/${GET_PRODUCT_LIST_ENDPOINT}`
+    const url = `${environment.apiEndPoint}/${GET_PRODUCT_LIST_ENDPOINT}`;
     return this._apiCaller.getRequest<Product[]>(url);
+  }
+
+
+  getProductById(productId: string): Observable<Response<Product>> {
+    const url = `${environment.apiEndPoint}/${GET_PRODUCT_LIST_ENDPOINT}/${productId}`;
+    return this._apiCaller.getRequest<Product>(url);
   }
 }

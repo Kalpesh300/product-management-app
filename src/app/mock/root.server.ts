@@ -18,13 +18,19 @@ export default () => {
 
     routes() {
       this.urlPrefix = 'api';
-      const timing = 3000;
+      this.timing = 3000;
 
       this.get('/products', (schema, request) => {
         return {
           payload: (schema as any).products.all().models
         }
-      }, { timing });
+      });
+
+      this.get('/products/:id', (schema, request) => {
+        return {
+          payload: (schema as any).products.find(request.params.id)
+        }
+      });
     }
 
   })

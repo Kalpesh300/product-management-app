@@ -7,7 +7,8 @@ export const products = [
     imageUrl: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-pro-family-hero',
     price: 119900,
     category: 'iPhone',
-    inStock: true
+    inStock: true,
+    ratingStar: 5
   },
   {
     title: 'iPhone 12 mini',
@@ -16,7 +17,8 @@ export const products = [
     imageUrl: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-family-select-2020',
     price: 69900,
     category: 'iPhone',
-    inStock: false
+    inStock: false,
+    ratingStar: 3
   },
   {
     title: 'iPhone SE',
@@ -25,7 +27,8 @@ export const products = [
     imageUrl: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-se-black-select-2020_GEO_EMEA',
     price: 39900,
     category: 'iPhone',
-    inStock: true
+    inStock: true,
+    ratingStar: 4
   },
   {
     title: 'iPhone 11',
@@ -36,7 +39,8 @@ export const products = [
     imageUrl: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone11-black-select-2019_GEO_EMEA',
     price: 54900,
     category: 'iPhone',
-    inStock: true
+    inStock: true,
+    ratingStar: 5
   },
   {
     title: 'iPad Pro',
@@ -46,7 +50,8 @@ export const products = [
     imageUrl: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/ipad-pro-12-11-select-202003',
     price: 89900,
     category: 'iPad',
-    inStock: false
+    inStock: false,
+    ratingStar: 4
   },
   {
     title: 'iPad Air',
@@ -56,7 +61,8 @@ export const products = [
     imageUrl: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/ipad-air-select-wifi-green-202009',
     price: 54900,
     category: 'iPad',
-    inStock: true
+    inStock: true,
+    ratingStar: 3
   },
   {
     title: 'iPad mini',
@@ -66,6 +72,7 @@ export const products = [
     imageUrl: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/ipad-mini-select-wifi-gold-201911',
     price: 34900,
     category: 'iPad',
-    inStock: false
+    inStock: false,
+    ratingStar: 4
   }
 ];

@@ -8,6 +8,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { ProductsListHeaderComponent } from './components/products-list-header/products-list-header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsFilterPanelComponent } from './components/products-filter-panel/products-filter-panel.component';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ProductsFilterPanelComponent } from './components/products-filter-panel
     ProductListComponent,
     ProductCardComponent,
     ProductsListHeaderComponent,
-    ProductsFilterPanelComponent
+    ProductsFilterPanelComponent,
+    ProductDetailsComponent
   ],
   imports: [
     CommonModule,

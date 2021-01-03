@@ -1,4 +1,4 @@
-<div class="card mb-4" *ngIf="productData">
+<a class="card mb-4" *ngIf="productData" [routerLink]="[productData.id]">
   <img [src]="productData.imageUrl" class="card-img-top product-img p-3" [alt]="productData.title">
   <div class="card-body">
     <h5 class="card-title">{{ productData.title }}</h5>
@@ -9,4 +9,4 @@
       {{ productData.price | currency:'INR' }}
     </p>
   </div>
-</div>
+</a>
