@@ -1,0 +1,105 @@
+<ngx-smart-modal identifier="addEditProductModal" customClass="nsm-centered" [closable]="false">
+  <div class="modal-header">
+    <h5 class="modal-title"> Add product </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
+  </div>
+
+  <div class="modal-body">
+
+    <form class="row" [formGroup]="productForm" (ngSubmit)="addProduct()">
+
+      <div class="col-6 mb-3">
+        <label for="inputTitle" class="form-label"> Title </label>
+        <input type="text" class="form-control" id="inputTitle" formControlName="title" maxlength="50" required>
+        <ng-container *ngFor="let error of productFormErrors.title">
+          <div class="invalid-feedback"
+            *ngIf="productForm.controls.title.hasError(error.type) && productForm.controls.title.touched">
+            {{ error.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="col-6 mb-3">
+        <label for="inputDescription" class="form-label"> Description </label>
+        <input type="text" class="form-control" id="inputDescription" formControlName="description" maxlength="150"
+          required>
+        <ng-container *ngFor="let error of productFormErrors.description">
+          <div class="invalid-feedback"
+            *ngIf="productForm.controls.description.hasError(error.type) && productForm.controls.description.touched">
+            {{ error.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="col-6 mb-3">
+        <label for="inputImageUrl" class="form-label"> Image URL </label>
+        <input type="text" class="form-control" id="inputImageUrl" formControlName="imageUrl"
+          pattern="(\b(https?|ftp|file)://)?[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]" required>
+        <ng-container *ngFor="let error of productFormErrors.imageUrl">
+          <div class="invalid-feedback"
+            *ngIf="productForm.controls.imageUrl.hasError(error.type) && productForm.controls.imageUrl.touched">
+            {{ error.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="col-6 mb-3">
+        <label for="inputPrice" class="form-label"> Price </label>
+        <input type="number" class="form-control" id="inputPrice" formControlName="price" min="0" required>
+        <ng-container *ngFor="let error of productFormErrors.price">
+          <div class="invalid-feedback"
+            *ngIf="productForm.controls.price.hasError(error.type) && productForm.controls.price.touched">
+            {{ error.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="col-6 mb-3">
+        <label for="inputCategory" class="form-label"> Category </label>
+        <input type="text" class="form-control" id="inputCategory" formControlName="category" required>
+        <ng-container *ngFor="let error of productFormErrors.category">
+          <div class="invalid-feedback"
+            *ngIf="productForm.controls.category.hasError(error.type) && productForm.controls.category.touched">
+            {{ error.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="col-6 mb-3">
+        <label class="form-label"> Availability </label>
+        <div class="d-flex">
+          <div class="d-flex">
+            <input type="radio" class="form-check-input" id="inputInStock" value="inStock"
+              formControlName="inStock">
+            <label for="inputInStock" class="form-label ms-2"> In Stock </label>
+          </div>
+          <div class="d-flex ms-4">
+            <input type="radio" class="form-check-input" id="inputNotInStock" value="notInStock"
+              formControlName="inStock">
+            <label for="inputNotInStock" class="form-label ms-2"> Not in Stock </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 mb-3">
+        <label for="inputRating" class="form-label"> Rating </label>
+        <div>
+          <rating [max]="5" formControlName="ratingStar"></rating>
+        </div>
+        <ng-container *ngFor="let error of productFormErrors.ratingStar">
+          <div class="invalid-feedback"
+            *ngIf="productForm.controls.ratingStar.hasError(error.type) && productForm.controls.ratingStar.touched">
+            {{ error.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Close</button>
+        <button type="submit" class="btn btn-primary"> Submit </button>
+      </div>
+
+    </form>
+
+  </div>
+</ngx-smart-modal>>

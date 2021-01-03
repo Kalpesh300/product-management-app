@@ -23,6 +23,7 @@
     "bootstrap": "^5.0.0-beta1",
     "ngx-auto-unsubscribe": "^3.0.1",
     "ngx-bootstrap": "^6.2.0",
+    "ngx-smart-modal": "^7.4.1",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

@@ -15,4 +15,6 @@
       </div>
     </div>
   </div>
+  <button type="button" class="btn btn-primary add-product-button" (click)="openModal()"> Add product </button>
 </div>
+<pma-add-product-modal (productAdd)="appendNewProduct($event)"></pma-add-product-modal>

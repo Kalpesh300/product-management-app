@@ -6,5 +6,15 @@ export interface Product {
   price: number;
   category: string;
   inStock: boolean;
-  ratingStar: number
+  ratingStar: number;
+}
+
+export interface ProductFormValue {
+  title: string
+  description: string;
+  imageUrl: string;
+  price: number;
+  category: string;
+  inStock: string | boolean;
+  ratingStar: number;
 }

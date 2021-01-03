@@ -1,4 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
+@import "~ngx-smart-modal/ngx-smart-modal";
 
 body {
   height: 100vh;
@@ -22,4 +23,13 @@ a {
 .bs-rating-star {
   font-size: 1.5rem;
   color: var(--bs-yellow);
+}
+
+.nsm-dialog {
+  width: calc(100vw - 500px);
+  max-width: 800px;
+
+  .nsm-content {
+    width: 100%;
+  }
 }

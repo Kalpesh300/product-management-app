@@ -30,6 +30,14 @@ export default () => {
           payload: (schema as any).products.find(request.params.id)
         }
       });
+
+      this.post('/products', (schema, request) => {
+
+        let attrs = JSON.parse(request.requestBody)
+        return {
+          payload: (schema as any).products.create(attrs)
+        }
+      })
     }
 
   })

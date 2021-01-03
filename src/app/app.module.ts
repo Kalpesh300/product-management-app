@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { NavigationPanelComponent } from './components/navigation-panel/navigation-panel.component';
 import { CoreModule } from './core/core.module';
 import { RatingModule } from 'ngx-bootstrap/rating';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +18,7 @@ import { RatingModule } from 'ngx-bootstrap/rating';
     CoreModule,
     AppRoutingModule,
     RatingModule.forRoot(),
+    NgxSmartModalModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

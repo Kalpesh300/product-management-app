@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { AutoUnsubscribe } from 'ngx-auto-unsubscribe';
 import { ActivatedRoute } from '@angular/router';
 import { filter, tap } from 'rxjs/operators';
+import { NgxSmartModalService } from 'ngx-smart-modal';
 
 @AutoUnsubscribe({
   arrayName: 'subscriptions'
@@ -26,6 +27,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   constructor(
     private _productService: ProductService,
     private _activatedRoute: ActivatedRoute,
+    private _ngxSmartModal: NgxSmartModalService,
   ) {
     this.products = [];
     this._products = [];
@@ -43,6 +45,16 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   productsTrackBy(index: number, product: Product): number {
     return +product.id;
+  }
+
+
+  openModal(): void {
+    this._ngxSmartModal.open('addEditProductModal');
+  }
+
+
+  appendNewProduct(product: Product): void {
+    this.products.push(product);
   }
 
 
@@ -90,7 +102,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
             const productsByCategory = this.filterProductsByCategory(category, productsByPrice);
 
             const inStockQueryParam = queryParamMap.get(IN_STOCK_QUERY_PARAMETER);
-            if(inStockQueryParam === null) {
+            if (inStockQueryParam === null) {
               this.products = this.filterProductsByInStock(null, productsByCategory);
             } else {
               const inStock: boolean = queryParamMap.get(IN_STOCK_QUERY_PARAMETER) === 'true';

@@ -1,3 +1,4 @@
+import { NgxSmartModalModule } from 'ngx-smart-modal';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -10,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsFilterPanelComponent } from './components/products-filter-panel/products-filter-panel.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { RatingModule } from 'ngx-bootstrap/rating';
+import { AddProductModalComponent } from './components/add-product-modal/add-product-modal.component';
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { RatingModule } from 'ngx-bootstrap/rating';
     ProductCardComponent,
     ProductsListHeaderComponent,
     ProductsFilterPanelComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    AddProductModalComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +29,7 @@ import { RatingModule } from 'ngx-bootstrap/rating';
     ReactiveFormsModule,
     FormsModule,
     RatingModule,
+    NgxSmartModalModule.forChild()
   ],
   providers: [
     ProductService
