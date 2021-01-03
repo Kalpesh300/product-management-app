@@ -1,0 +1,15 @@
+<ngx-smart-modal identifier="confirmationModal" customClass="nsm-centered" [closable]="false"
+  (onDataAdded)="setModalData($event)">
+  <div class="modal-header">
+    <h5 class="modal-title"> Delete product </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
+  </div>
+
+  <div class="modal-body" *ngIf="modalData">
+    <p> Are you sure you want to delete product <strong> {{modalData.title}} </strong> </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()"> No </button>
+    <button type="button" class="btn btn-primary" (click)="confirmResponse()"> Yes </button>
+  </div>
+</ngx-smart-modal>

@@ -12,6 +12,7 @@ import { ProductsFilterPanelComponent } from './components/products-filter-panel
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { AddProductModalComponent } from './components/add-product-modal/add-product-modal.component';
+import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AddProductModalComponent } from './components/add-product-modal/add-pro
     ProductsListHeaderComponent,
     ProductsFilterPanelComponent,
     ProductDetailsComponent,
-    AddProductModalComponent
+    AddProductModalComponent,
+    ConfirmationModalComponent
   ],
   imports: [
     CommonModule,

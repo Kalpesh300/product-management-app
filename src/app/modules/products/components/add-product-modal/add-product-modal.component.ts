@@ -114,6 +114,7 @@ export class AddProductModalComponent {
     this._productService.addProduct(this.productForm.value).subscribe(
       (response) => {
         this.productAdd.emit(response.payload);
+        this.productForm.reset();
         this.closeModal();
       }
     );

@@ -20,8 +20,9 @@ export default () => {
       this.urlPrefix = 'api';
 
       this.get('/products', (schema, request) => {
+        const products = (schema as any).products.where({ isRemoved: false }).models;
         return {
-          payload: (schema as any).products.all().models
+          payload: products
         }
       });
 
@@ -37,7 +38,17 @@ export default () => {
         return {
           payload: (schema as any).products.create(attrs)
         }
+      });
+
+      this.put('products/:id', (schema, request) => {
+
+        const attrs = JSON.parse(JSON.stringify({ isRemoved: true }));
+        const product = (schema as any).products.find(request.params.id);
+        return {
+          payload: product.update(attrs)
+        }
       })
+
     }
 
   })

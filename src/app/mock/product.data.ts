@@ -8,7 +8,8 @@ export const products = [
     price: 119900,
     category: 'iPhone',
     inStock: true,
-    ratingStar: 5
+    ratingStar: 5,
+    isRemoved: false,
   },
   {
     title: 'iPhone 12 mini',
@@ -18,7 +19,8 @@ export const products = [
     price: 69900,
     category: 'iPhone',
     inStock: false,
-    ratingStar: 3
+    ratingStar: 3,
+    isRemoved: false,
   },
   {
     title: 'iPhone SE',
@@ -28,7 +30,8 @@ export const products = [
     price: 39900,
     category: 'iPhone',
     inStock: true,
-    ratingStar: 4
+    ratingStar: 4,
+    isRemoved: false,
   },
   {
     title: 'iPhone 11',
@@ -40,7 +43,8 @@ export const products = [
     price: 54900,
     category: 'iPhone',
     inStock: true,
-    ratingStar: 5
+    ratingStar: 5,
+    isRemoved: false,
   },
   {
     title: 'iPad Pro',
@@ -51,7 +55,8 @@ export const products = [
     price: 89900,
     category: 'iPad',
     inStock: false,
-    ratingStar: 4
+    ratingStar: 4,
+    isRemoved: false,
   },
   {
     title: 'iPad Air',
@@ -62,7 +67,8 @@ export const products = [
     price: 54900,
     category: 'iPad',
     inStock: true,
-    ratingStar: 3
+    ratingStar: 3,
+    isRemoved: false,
   },
   {
     title: 'iPad mini',
@@ -73,6 +79,7 @@ export const products = [
     price: 34900,
     category: 'iPad',
     inStock: false,
-    ratingStar: 4
+    ratingStar: 4,
+    isRemoved: false,
   }
 ];

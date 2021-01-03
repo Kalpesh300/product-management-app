@@ -7,6 +7,7 @@ import { AutoUnsubscribe } from 'ngx-auto-unsubscribe';
 import { ActivatedRoute } from '@angular/router';
 import { filter, tap } from 'rxjs/operators';
 import { NgxSmartModalService } from 'ngx-smart-modal';
+import { products } from 'src/app/mock/product.data';
 
 @AutoUnsubscribe({
   arrayName: 'subscriptions'
@@ -55,6 +56,19 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   appendNewProduct(product: Product): void {
     this.products.push(product);
+  }
+
+
+  deleteProduct(modalData: any): void {
+
+    this._productService.deleteProduct(modalData.id).subscribe(
+      () => {
+        const index = this.products.findIndex(
+          (product) => product.id === modalData.id
+        );
+        this.products.splice(index, 1);
+      }
+    );
   }
 
 

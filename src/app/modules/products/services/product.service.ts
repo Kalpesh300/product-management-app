@@ -34,4 +34,11 @@ export class ProductService {
     const url = `${environment.apiEndPoint}/${GET_PRODUCT_LIST_ENDPOINT}`;
     return this._apiCaller.postRequest<Product, ProductFormValue>(url, productData);
   }
+
+
+  deleteProduct(productId: string): Observable<Response<void>> {
+
+    const url = `${environment.apiEndPoint}/${GET_PRODUCT_LIST_ENDPOINT}/${productId}`;
+    return this._apiCaller.putRequest<void, null>(url, null);
+  }
 }
